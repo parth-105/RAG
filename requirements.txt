@@ -1,0 +1,9 @@
+langchain
+langchain-community
+pandas
+requests
+faiss-cpu
+numpy
+transformers
+sentence-transformers
+python-dotenv

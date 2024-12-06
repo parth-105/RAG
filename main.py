@@ -13,7 +13,7 @@ from dotenv import load_dotenv
 load_dotenv()  # take environment variables from .env (especially openai api key)
 
 # Create Google Generative AI model
-llm = ChatGoogleGenerativeAI(api_key="AIzaSyBu0POnbbEqqu_6MnhrGDitEcVKKQH2WYw", model="gemini-1.5-pro", temperature=0.1)
+llm = ChatGoogleGenerativeAI(api_key=process.env.GEMINI_API_KEY, model="gemini-1.5-pro", temperature=0.1)
 # Initialize Google Generative AI embeddings
 instructor_embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-mpnet-base-v2")
 vectordb_file_path = "faiss_index"
@@ -78,7 +78,7 @@ if __name__ == "__main__":
 # def check_import():
 #     try:
 #         # Create an instance of the ChatGoogleGenerativeAI model
-#         llm = ChatGoogleGenerativeAI(api_key="AIzaSyBu0POnbbEqqu_6MnhrGDitEcVKKQH2WYw", model="gemini", temperature=0.1)
+#         llm = ChatGoogleGenerativeAI(api_key="", model="gemini", temperature=0.1)
 #         print("Import successful and model instance created!")
 #     except Exception as e:
 #         print(f"An error occurred: {e}")
@@ -92,7 +92,7 @@ if __name__ == "__main__":
 # def ask_question(question):
 #     try:
 #         # Create an instance of the ChatGoogleGenerativeAI model
-#         llm = ChatGoogleGenerativeAI(api_key="AIzaSyBu0POnbbEqqu_6MnhrGDitEcVKKQH2WYw", model="gemini-pro", temperature=0.1)
+#         llm = ChatGoogleGenerativeAI(api_key="", model="gemini-pro", temperature=0.1)
 #         result = llm.invoke("Write a ballad about LangChain")
 #         print(result.content)
 #     except Exception as e:
@@ -109,7 +109,7 @@ if __name__ == "__main__":
 # def check_embeddings(texts):
 #     try:
 #         # Initialize Google Generative AI embeddings
-#         embeddings_model = GoogleGenerativeAIEmbeddings(api_key="AIzaSyBu0POnbbEqqu_6MnhrGDitEcVKKQH2WYw", model="models/embedding-001")
+#         embeddings_model = GoogleGenerativeAIEmbeddings(api_key="", model="models/embedding-001")
         
 #         # Generate embeddings for the provided texts
 #         embeddings = embeddings_model.embed_query("hello, world!")
